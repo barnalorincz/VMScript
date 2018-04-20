@@ -18,9 +18,10 @@ vrdeport="5041-5049"
 
 audio="none"
 
-hddfile=/data/virtual_machines/vbox/vbox_guests/${vmname}/${vmname}.vdi
+
 clear
 
+VBoxManage createhd --ubu $VM.vdi --size 32768
 vboxmanage createvm --name $vmname --ostype $ostype --register
 vboxmanage modifyvm $vmname --memory $memory --vram $vram --acpi on --ioapic on --cpus 1 --cpuexecutioncap 75 --rtcuseutc on --cpuhotplug on --pae on --hwvirtex on
 vboxmanage modifyvm $vmname --nic1 bridged --bridgeadapter1 eth0 --cableconnected1 on
